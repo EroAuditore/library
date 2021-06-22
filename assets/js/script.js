@@ -104,7 +104,7 @@ function renderLibrary() {
     tableTD = document.createElement("td");
 
     tableTD.appendChild(btn);
-    tableTD.appendChild(btn2);
+    tableTD.appendChild(btnRead);
     tableRow.appendChild(tableTD);
 
 
