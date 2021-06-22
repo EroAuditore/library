@@ -29,52 +29,41 @@ function onSubmit() {
   //Add the book to the library
   addBookToLibrary(newBook)
   //Display the library
+  emptyTable();
   renderLibrary();
 
-
-
-  // // Find a <table> element with id="myTable":
-  // var table = document.getElementById("libraryTable");
-
-  // // Create an empty <tr> element and add it to the 1st position of the table:
-  // var row = table.insertRow(1);
-
-  // // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-  // var cell1 = row.insertCell(0); //Number
-  // var cell2 = row.insertCell(1); //Title
-  // var cell3 = row.insertCell(2); //Author
-  // var cell4 = row.insertCell(3); //PAges
-  // var cell5 = row.insertCell(4); //Read
-
-  // // Add some text to the new cells:
-  // cell1.innerHTML = "NEW CELL1";
-  // cell2.innerHTML = titleValue;
 }
 
+function emptyTable() {
+  let table = document.getElementById("libraryTable");
+  let bodyRef = table.getElementsByTagName('tbody')[0];
+  bodyRef.innerHTML = '';
+}
 
 function renderLibrary() {
   let i = 0;
-  let num = myLibrary.length-1;
-  console.log(num)
- 
+  let num = myLibrary.length - 1;
+
+  // Find a <table> element with id="myTable":
+
+
+
+  var tableRef = document.getElementById('libraryTable').getElementsByTagName('tbody')[0];
+
   //Loop the library
- for (i = 0; i <= num; i++) {
+  for (i = 0; i <= num; i++) {
+    // Create an empty <tr> element and add it to the 1st position of the table:
+    isRead = myLibrary[i].read === true ? "Yes" : "No";
+    tableRef.insertRow().innerHTML =
 
-// Find a <table> element with id="myTable":
-var table = document.getElementById("libraryTable");
+      "<tr> <th scope='row'>" + (i + 1).toString() + "</th>" +
+      "<td>" + myLibrary[i].title + "</td>" +
+      "<td>" + myLibrary[i].author + "</td>" +
+      "<td>" + myLibrary[i].pages + "</td>" +
+      "<td>" + isRead + "</td> </tr>";
 
-// Create an empty <tr> element and add it to the 1st position of the table:
-var row = table.insertRow(0);
 
-// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-
-// Add some text to the new cells:
-cell1.innerHTML = "NEW CELL1";
-cell2.innerHTML = "NEW CELL2";
-  
- }
+  }
 
   //inside the loop add each book into the table
 
