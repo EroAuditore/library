@@ -29,5 +29,34 @@ function onSubmit() {
   //Add the book to the library
   addBookToLibrary(newBook)
   //Display the library
+  renderLibrary();
+
+
+
+  // // Find a <table> element with id="myTable":
+  // var table = document.getElementById("libraryTable");
+
+  // // Create an empty <tr> element and add it to the 1st position of the table:
+  // var row = table.insertRow(1);
+
+  // // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+  // var cell1 = row.insertCell(0); //Number
+  // var cell2 = row.insertCell(1); //Title
+  // var cell3 = row.insertCell(2); //Author
+  // var cell4 = row.insertCell(3); //PAges
+  // var cell5 = row.insertCell(4); //Read
+
+  // // Add some text to the new cells:
+  // cell1.innerHTML = "NEW CELL1";
+  // cell2.innerHTML = titleValue;
+}
+
+
+function renderLibrary() {
   console.log("My Library", myLibrary)
+
+  //Loop the library
+
+  //inside the loop add each book into the table
+
 }
