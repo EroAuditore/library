@@ -81,24 +81,37 @@ function renderLibrary() {
     btn.className = "btn btn-danger";
     btn.id = myLibrary[i].title;
 
+    var btnRead =document.createElement("BUTTON");
+    btnRead.innerHTML = "Read Status";
+    btnRead.className = "btn btn-success";
+    btnRead.id = myLibrary[i].title;
+
 
     btn.addEventListener('click', function () {
-      console.log("Delete this book!!!", this.id);
       removeBook(this.id);
       emptyTable();
       renderLibrary();
-
     });
+
+    btnRead.addEventListener('click', function () {
+      readStatus(this.id);
+      emptyTable();
+      renderLibrary();
+    });
+
+
 
     tableTD = document.createElement("td");
 
     tableTD.appendChild(btn);
+    tableTD.appendChild(btn2);
     tableRow.appendChild(tableTD);
 
 
     // Append the text to <li>
     tableRef.appendChild(tableRow);     // Append <li> to <ul> with id="myList"
 
+    
 
   }
 
@@ -109,4 +122,17 @@ function renderLibrary() {
 
 function removeBook(title) {
   myLibrary = myLibrary.filter(book => book.title != title);
+}
+
+function readStatus(title) {
+  let num = myLibrary.length-1;
+for (i = 0; i <= num; i++) {
+  if (myLibrary[i].title == title) {
+   if (myLibrary[i].read == true) {
+     myLibrary[i].read = false; 
+    } else {
+      myLibrary[i].read = true;
+    }
+   } 
+  }
 }
