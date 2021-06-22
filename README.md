@@ -2,7 +2,7 @@
 
 # Library
 
-Library app allows users to manage books in thier books collections. Users can enter the title, name of author, number of pages of the books and can mark these as either read or not-read.
+Library app allows users to manage books in their books collections. Users can enter the title, name of author, number of pages of the books and can mark these as either read or not-read.
 
 ![Library](https://user-images.githubusercontent.com/68709712/123011091-a56d4180-d374-11eb-8b2d-6fb8902b5a42.png)
 
@@ -28,7 +28,6 @@ To get a local copy up and running follow these simple example steps:
 * Navigate to the project's directory using the `cd` command
 * Run `git checkout feature/librar` to work inside the proper branch of the project
 * Open the `index.html` file in the web browser and interact with the app.
-
 
 
 ## Authors
@@ -59,3 +58,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 Guidelines for this project were provided by [The Odin Project](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/javascript/lessons/library)
+
+
+## 📝 License
+
+This project is [MIT](https://github.com/German-Cobian/Re-former/blob/re-former-feature/LICENSE) licensed.
