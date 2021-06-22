@@ -43,28 +43,70 @@ function emptyTable() {
 function renderLibrary() {
   let i = 0;
   let num = myLibrary.length - 1;
-
-  // Find a <table> element with id="myTable":
-
-
-
+  let tableTD;
+  let tableRow;
   var tableRef = document.getElementById('libraryTable').getElementsByTagName('tbody')[0];
 
   //Loop the library
   for (i = 0; i <= num; i++) {
     // Create an empty <tr> element and add it to the 1st position of the table:
     isRead = myLibrary[i].read === true ? "Yes" : "No";
-    tableRef.insertRow().innerHTML =
+    //Create main Rown
+    tableRow = document.createElement("tr");                 // Create a <li> node
 
-      "<tr> <th scope='row'>" + (i + 1).toString() + "</th>" +
-      "<td>" + myLibrary[i].title + "</td>" +
-      "<td>" + myLibrary[i].author + "</td>" +
-      "<td>" + myLibrary[i].pages + "</td>" +
-      "<td>" + isRead + "</td> </tr>";
+    //Create columns
+    tableTD = document.createElement("td");         // Create a text node
+    tableTD.innerHTML = (i + 1).toString()
+    tableRow.appendChild(tableTD);
+
+    tableTD = document.createElement("td");         // Create a text node
+    tableTD.innerHTML = myLibrary[i].title
+    tableRow.appendChild(tableTD);
+
+    tableTD = document.createElement("td");         // Create a text node
+    tableTD.innerHTML = myLibrary[i].author
+    tableRow.appendChild(tableTD);
+
+    tableTD = document.createElement("td");         // Create a text node
+    tableTD.innerHTML = myLibrary[i].pages
+    tableRow.appendChild(tableTD);
+
+    tableTD = document.createElement("td");         // Create a text node
+    tableTD.innerHTML = isRead
+    tableRow.appendChild(tableTD);
+
+    //Action button
+    var btn = document.createElement("BUTTON");
+    btn.innerHTML = "Delete";
+    btn.className = "btn btn-danger";
+    btn.id = myLibrary[i].title;
+
+
+    btn.addEventListener('click', function () {
+      console.log("Delete this book!!!", this.id);
+      removeBook(this.id);
+      emptyTable();
+      renderLibrary();
+
+    });
+
+    tableTD = document.createElement("td");
+
+    tableTD.appendChild(btn);
+    tableRow.appendChild(tableTD);
+
+
+    // Append the text to <li>
+    tableRef.appendChild(tableRow);     // Append <li> to <ul> with id="myList"
 
 
   }
 
   //inside the loop add each book into the table
 
+}
+
+
+function removeBook(title) {
+  myLibrary = myLibrary.filter(book => book.title != title);
 }
