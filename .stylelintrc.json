@@ -19,5 +19,16 @@
         "**/bootstrap*.css",
         "**/*.js",
         "**/*.jsx"
+    ],
+    "options": [
+        {
+            "no-use-before-define": [
+                "error",
+                {
+                    "functions": true,
+                    "classes": true
+                }
+            ]
+        }
     ]
 }
