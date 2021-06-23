@@ -1,4 +1,4 @@
-/*eslint no-use-before-define: ["error", { "functions": false }]*/
+/* eslint no-use-before-define:["error",{"functions":false}] */ 
 let myLibrary = [];
 let newBook;
 
@@ -92,13 +92,13 @@ function addBookToLibrary(book) {
   SaveLibrary();
 }
 
-// eslint-disable-next-line no-use-before-define
 function emptyTable() {
   const table = document.getElementById('libraryTable');
   const bodyRef = table.getElementsByTagName('tbody')[0];
   bodyRef.innerHTML = '';
 }
 
+// eslint-disable-next-line no-unused-vars
 function onSubmit() {
   // Get the values from HTML from
   const titleValue = document.getElementById('titleInput').value;
@@ -115,13 +115,11 @@ function onSubmit() {
   renderLibrary();
 }
 
-// eslint-disable-next-line no-use-before-define
 function removeBook(title) {
   myLibrary = myLibrary.filter((book) => book.title !== title);
   SaveLibrary();
 }
 
-// eslint-disable-next-line no-use-before-defin
 function readStatus(title) {
   const num = myLibrary.length - 1;
   for (let i = 0; i <= num; i += 1) {
