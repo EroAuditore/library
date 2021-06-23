@@ -116,7 +116,7 @@ function onSubmit() {
 
 // eslint-disable-next-line no-use-before-define
 function removeBook(title) {
-  myLibrary = myLibrary.filter(book => book.title !== title);
+  myLibrary = myLibrary.filter((book) => book.title !== title);
   SaveLibrary();
 }
 
