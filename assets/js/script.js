@@ -11,7 +11,7 @@ function renderLibrary() {
   // Loop the library
   for (i = 0; i <= num; i += 1) {
     // Create an empty <tr> element and add it to the 1st position of the table:
-     const isRead = myLibrary[i].read === true ? 'Yes' : 'No';
+    const isRead = myLibrary[i].read === true ? 'Yes' : 'No';
     // Create main Row
     tableRow = document.createElement('tr'); // Create a <li> node
 
@@ -71,7 +71,7 @@ function renderLibrary() {
 }
 
 window.onload = function () {
-  myLibrary = JSON.parse(localStorage.getItem('library') || "[]");
+  myLibrary = JSON.parse(localStorage.getItem('library') || '[]');
   renderLibrary();
 };
 
@@ -91,6 +91,7 @@ function addBookToLibrary(book) {
   SaveLibrary();
 }
 
+// eslint-disable-next-line no-use-before-define
 function emptyTable() {
   const table = document.getElementById('libraryTable');
   const bodyRef = table.getElementsByTagName('tbody')[0];
@@ -113,11 +114,13 @@ function onSubmit() {
   renderLibrary();
 }
 
+// eslint-disable-next-line no-use-before-define
 function removeBook(title) {
   myLibrary = myLibrary.filter(book => book.title !== title);
   SaveLibrary();
 }
 
+// eslint-disable-next-line no-use-before-defin
 function readStatus(title) {
   const num = myLibrary.length - 1;
   for (let i = 0; i <= num; i += 1) {
