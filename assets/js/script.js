@@ -1,6 +1,6 @@
 let myLibrary = [];
 let newBook;
-let renderLibrary;
+
 
 window.onload = function () {
   myLibrary = JSON.parse(localStorage.getItem('library') || "[]");
