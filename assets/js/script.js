@@ -1,4 +1,4 @@
-/* eslint no-use-before-define:["error",{"functions":false}] */ 
+/* eslint no-use-before-define:["error",{"functions":false}] */
 let myLibrary = [];
 let newBook;
 
