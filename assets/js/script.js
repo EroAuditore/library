@@ -1,3 +1,6 @@
+/*jslint latedef:false*/
+
+
 let myLibrary = [];
 let newBook;
 
