@@ -29,8 +29,19 @@
             </div>
         </nav>
     </header>
-    <main class="container">
-        <section>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New book form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
             <div class="mb-3">
                 <label for="titleInput" class="form-label">Title</label>
                 <input type="text" class="form-control" id="titleInput" placeholder="Title of the book">
@@ -49,10 +60,22 @@
                     Have you read the book?
                 </label>
             </div>
-            <div class="mb-3">
-                <button type="button" class="btn btn-primary" onclick='onSubmit()'>Submit</button>
-            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="onSubmit()" data-bs-dismiss="modal">Save book</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+
+    <main class="container">
+        <section>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                New book
+            </button>
+            
         </section>
         <section>
             <table class="table" id="libraryTable">
