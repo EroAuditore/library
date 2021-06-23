@@ -1,8 +1,8 @@
 let myLibrary = [];
 let newBook;
+let renderLibrary;
 
 window.onload = function () {
-
   myLibrary = JSON.parse(localStorage.getItem('library') || "[]");
   renderLibrary();
 };
@@ -31,7 +31,7 @@ function onSubmit() {
   readValue = document.getElementById('readInput').checked;
 
   // Create the book
-  newBook = new Book(titleValue, authorValue, pagesValue, readValue)
+  newBook = new Book(titleValue, authorValue, pagesValue, readValue);
   // Add the book to the library
   addBookToLibrary(newBook);
   // Display the library
@@ -71,16 +71,16 @@ function renderLibrary() {
   let tableRow;
   let tableRef = document.getElementById('libraryTable').getElementsByTagName('tbody')[0];
 
-  //Loop the library
+  // Loop the library
   for (i = 0; i <= num; i++) {
     // Create an empty <tr> element and add it to the 1st position of the table:
-    isRead = myLibrary[i].read === true ? "Yes" : "No";
+    isRead = myLibrary[i].read === true ? 'Yes' : 'No';
     // Create main Row
     tableRow = document.createElement('tr'); // Create a <li> node
 
     // Create columns
     tableTD = document.createElement('td'); // Create a text node
-    tableTD.innerHTML = (i + 1).toString()
+    tableTD.innerHTML = (i + 1).toString();
     tableRow.appendChild(tableTD);
 
     tableTD = document.createElement('td'); // Create a text node
