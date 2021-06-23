@@ -9,8 +9,7 @@
     "rules": {
         "at-rule-no-unknown": null,
         "scss/at-rule-no-unknown": true,
-        "csstree/validator": true,
-        "no-use-before-define": ["error", {"functions": false, "classes": false}]
+        "csstree/validator": true
     },
     "ignoreFiles": [
         "build/**",
