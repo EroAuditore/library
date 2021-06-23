@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps:
 
 * Open your terminal - Windows: `Win + R`, then type `cmd` | Mac: `Command + space`, then type `Terminal`
 * Navigate to a directory of your choosing using the `cd` command
-* Run this command in your OS terminal: `git@github.com:EroAuditore/library.git` to get a copy of the project
+* Run this command in your OS terminal: `git clone git@github.com:EroAuditore/library.git` to get a copy of the project
 * Navigate to the project's directory using the `cd` command
 * Run `git checkout feature/librar` to work inside the proper branch of the project
 * Open the `index.html` file in the web browser and interact with the app.
