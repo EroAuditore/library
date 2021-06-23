@@ -1,80 +1,17 @@
 let myLibrary = [];
 let newBook;
 
-
-window.onload = function () {
-  myLibrary = JSON.parse(localStorage.getItem('library') || "[]");
-  renderLibrary();
-};
-
-function SaveLibrary() {
-  localStorage.setItem('library', JSON.stringify(myLibrary));
-}
-
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-  SaveLibrary();
-}
-
-function onSubmit() {
-  // Get the values from HTML from
-  titleValue = document.getElementById('titleInput').value;
-  authorValue = document.getElementById('authorInput').value;
-  pagesValue = document.getElementById('pagesInput').value;
-  readValue = document.getElementById('readInput').checked;
-
-  // Create the book
-  newBook = new Book(titleValue, authorValue, pagesValue, readValue);
-  // Add the book to the library
-  addBookToLibrary(newBook);
-  // Display the library
-  emptyTable();
-  renderLibrary();
-}
-
-function emptyTable() {
-  let table = document.getElementById('libraryTable');
-  let bodyRef = table.getElementsByTagName('tbody')[0];
-  bodyRef.innerHTML = '';
-}
-
-function removeBook(title) {
-  myLibrary = myLibrary.filter(book => book.title !== title);
-  SaveLibrary();
-}
-
-function readStatus(title) {
-  let num = myLibrary.length - 1;
-  for (let i = 0; i <= num; i++) {
-    if (myLibrary[i].title === title) {
-      if (myLibrary[i].read === true) {
-        myLibrary[i].read = false;
-      } else {
-        myLibrary[i].read = true;
-      }
-    }
-  }
-  SaveLibrary();
-}
-
 function renderLibrary() {
   let i = 0;
-  let num = myLibrary.length - 1;
+  const num = myLibrary.length - 1;
   let tableTD;
   let tableRow;
-  let tableRef = document.getElementById('libraryTable').getElementsByTagName('tbody')[0];
+  const tableRef = document.getElementById('libraryTable').getElementsByTagName('tbody')[0];
 
   // Loop the library
-  for (i = 0; i <= num; i++) {
+  for (i = 0; i <= num; i += 1) {
     // Create an empty <tr> element and add it to the 1st position of the table:
-    isRead = myLibrary[i].read === true ? 'Yes' : 'No';
+     const isRead = myLibrary[i].read === true ? 'Yes' : 'No';
     // Create main Row
     tableRow = document.createElement('tr'); // Create a <li> node
 
@@ -100,12 +37,12 @@ function renderLibrary() {
     tableRow.appendChild(tableTD);
 
     // Action button
-    let btn = document.createElement('BUTTON');
+    const btn = document.createElement('BUTTON');
     btn.innerHTML = 'Delete';
     btn.className = 'btn btn-danger';
     btn.id = myLibrary[i].title;
 
-    let btnRead = document.createElement('BUTTON');
+    const btnRead = document.createElement('BUTTON');
     btnRead.innerHTML = 'Read Status';
     btnRead.className = 'btn btn-success';
     btnRead.id = myLibrary[i].title;
@@ -131,4 +68,66 @@ function renderLibrary() {
     // Append the text to <li>
     tableRef.appendChild(tableRow); // Append <li> to <ul> with id="myList"
   }
+}
+
+window.onload = function () {
+  myLibrary = JSON.parse(localStorage.getItem('library') || "[]");
+  renderLibrary();
+};
+
+function SaveLibrary() {
+  localStorage.setItem('library', JSON.stringify(myLibrary));
+}
+
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}
+
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+  SaveLibrary();
+}
+
+function emptyTable() {
+  const table = document.getElementById('libraryTable');
+  const bodyRef = table.getElementsByTagName('tbody')[0];
+  bodyRef.innerHTML = '';
+}
+
+function onSubmit() {
+  // Get the values from HTML from
+  const titleValue = document.getElementById('titleInput').value;
+  const authorValue = document.getElementById('authorInput').value;
+  const pagesValue = document.getElementById('pagesInput').value;
+  const readValue = document.getElementById('readInput').checked;
+
+  // Create the book
+  newBook = new Book(titleValue, authorValue, pagesValue, readValue);
+  // Add the book to the library
+  addBookToLibrary(newBook);
+  // Display the library
+  emptyTable();
+  renderLibrary();
+}
+
+function removeBook(title) {
+  myLibrary = myLibrary.filter(book => book.title !== title);
+  SaveLibrary();
+}
+
+function readStatus(title) {
+  const num = myLibrary.length - 1;
+  for (let i = 0; i <= num; i += 1) {
+    if (myLibrary[i].title === title) {
+      if (myLibrary[i].read === true) {
+        myLibrary[i].read = false;
+      } else {
+        myLibrary[i].read = true;
+      }
+    }
+  }
+  SaveLibrary();
 }
